@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:endIconMode = "custom"
+        app:endIconDrawable = "@drawable/calendar"
+        android:hint="Từ ngày"
+        app:hintTextColor = "@color/primary_color"
+        android:textColorHint = "@color/primary_color"
+        app:boxStrokeColor = "@color/primary_color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:id="@+id/ed_doanh_thu_tu_ngay"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:endIconMode = "custom"
+        app:endIconDrawable = "@drawable/calendar"
+        android:hint="Đến ngày"
+        app:hintTextColor = "@color/primary_color"
+        android:textColorHint = "@color/primary_color"
+        app:boxStrokeColor = "@color/primary_color">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:id="@+id/ed_doanh_thu_den_ngay"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        app:icon = "@drawable/ic_doanh_thu"
+        app:iconTint = "#ffffff"
+        android:id="@+id/btn_doanh_thu"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal"
+        app:backgroundTint="@color/primary_color"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Doanh thu"
+        android:textColor="@color/white"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        />
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Doanh thu là: "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:id="@+id/tv_doanh_thu"/>
+    </LinearLayout>
+
+</LinearLayout>

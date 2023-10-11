@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Sửa thông tin"
+        android:gravity="center"
+        android:textSize="25dp"
+        android:background="@color/primary_color"
+        android:textColor="@color/white"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:padding="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/input_update_name_loai_sach"
+        app:endIconMode="clear_text"
+        android:hint="Tên loại sách"
+        app:hintTextColor = "@color/primary_color"
+        android:textColorHint = "@color/primary_color"
+        app:boxStrokeColor = "@color/primary_color"
+        app:errorEnabled="true">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_update_name_loai_sach"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/primary_color"
+            app:backgroundTint="#c4c4c4"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:background="@drawable/btn_aleart"
+            android:id="@+id/btn_dialog_cancle_update_loai_sach"
+            android:text="Huỷ"/>
+
+        <Button
+            android:id="@+id/btn_dialog_update_loai_sach"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:background="@drawable/btn_aleart"
+            android:text="Sửa"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/primary_color" />
+    </LinearLayout>
+</LinearLayout>

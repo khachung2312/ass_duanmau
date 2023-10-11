@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Thêm sách"
+        android:gravity="center"
+        android:textSize="25dp"
+        android:background="@color/primary_color"
+        android:textColor="@color/white"/>
+    <TextView
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/primary_color"
+        android:text="Loại sách: "/>
+    <Spinner
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="8dp"
+        android:id="@+id/spn_sach"
+        android:background="@drawable/custom_spn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:padding="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/input_name_sach"
+        app:endIconMode="clear_text"
+        android:hint="Tên Sách"
+        app:hintTextColor = "@color/primary_color"
+        android:textColorHint = "@color/primary_color"
+        app:boxStrokeColor = "@color/primary_color"
+        app:errorEnabled="true">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_name_sach"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        android:hint="Giá thuê"
+        android:id="@+id/input_price_sach"
+        app:endIconTint = "@color/primary_color"
+        app:hintTextColor = "@color/primary_color"
+        app:boxStrokeColor = "@color/primary_color"
+        android:textColorHint = "@color/primary_color">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_gia_thue_sach"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        android:hint="Năm xuất bản"
+        android:id="@+id/input_pub_year"
+        app:endIconTint = "@color/primary_color"
+        app:hintTextColor = "@color/primary_color"
+        app:boxStrokeColor = "@color/primary_color"
+        android:textColorHint = "@color/primary_color">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_pub_year"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/primary_color"
+            app:backgroundTint="#c4c4c4"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:background="@drawable/btn_aleart"
+            android:id="@+id/btn_dialog_cancle_add_sach"
+            android:text="Huỷ"/>
+
+        <Button
+            android:id="@+id/btn_dialog_add_sach"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:background="@drawable/btn_aleart"
+            android:text="Thêm"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/primary_color" />
+    </LinearLayout>
+</LinearLayout>
