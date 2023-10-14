@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class DBHelper extends SQLiteOpenHelper {
     static  final  String dbName = "PNLIB";
-    static  final int dbVersion = 6;
+    static  final int dbVersion = 7;
 
     public static final String TABLE_NAME_THU_THU = "thuthu";
     public static final String TABLE_NAME_THANH_VIEN = "thanhvien";
@@ -38,7 +38,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 "create table " + TABLE_NAME_THANH_VIEN + "(" +
                         "maTV INTEGER primary key AUTOINCREMENT, " +
                         "hoTen TEXT not null, " +
-                        "namSinh TEXT not null)";
+                        "namSinh TEXT not null," +
+                        "cccd INTEGER not null)";
         db.execSQL(createTableThanhVien);
 
         //tao bang loai sach

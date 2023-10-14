@@ -74,13 +74,15 @@ public class ThanhVienFragment extends Fragment {
                 }
                 AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
                 builder.setView(viewDialogAddThanhVien);
-                EditText ed_name_tv, ed_bitd_date;
+                EditText ed_name_tv, ed_bitd_date, ed_cccd_tv;
                 Button btn_add_tv, btn_cancel_add;
-                TextInputLayout layout_ed_bith, layout_name_tv;
+                TextInputLayout layout_ed_bith, layout_name_tv, layout_cccd_tv;
                 layout_ed_bith = viewDialogAddThanhVien.findViewById(R.id.input_bith_date_tv);
                 layout_name_tv = viewDialogAddThanhVien.findViewById(R.id.input_name_tv);
+                layout_cccd_tv = viewDialogAddThanhVien.findViewById(R.id.input_cccd_tv);
                 ed_name_tv = viewDialogAddThanhVien.findViewById(R.id.ed_name_tv);
                 ed_bitd_date = viewDialogAddThanhVien.findViewById(R.id.ed_bith_date_tv);
+                ed_cccd_tv = viewDialogAddThanhVien.findViewById(R.id.ed_cccd_tv);
                 btn_add_tv = viewDialogAddThanhVien.findViewById(R.id.btn_dialog_add_tv);
                 btn_cancel_add = viewDialogAddThanhVien.findViewById(R.id.btn_dialog_cancle_add_tv);
 
@@ -129,10 +131,22 @@ public class ThanhVienFragment extends Fragment {
                         }else {
                             layout_ed_bith.setError("");
                         }
-                      if (check > 0) {
-                          ThanhVien thanhVien = new ThanhVien();
-                          thanhVien.hoTen = ed_name_tv.getText().toString();
-                          thanhVien.namSinh = ed_bitd_date.getText().toString();
+
+                        if(ed_cccd_tv.getText().toString().isEmpty()) {
+                            layout_cccd_tv.setError("Vui lòng nhập CCCD");
+                            check = -1;
+                        } else if(ed_cccd_tv.getText().toString().length() != 8) {
+                            layout_cccd_tv.setError("CCCD định dạng phải là 8 kí tự");
+                            check = -1;
+                        } else {
+                            layout_cccd_tv.setError("");
+                        }
+
+                        if (check > 0) {
+                            ThanhVien thanhVien = new ThanhVien();
+                            thanhVien.hoTen = ed_name_tv.getText().toString();
+                            thanhVien.namSinh = ed_bitd_date.getText().toString();
+                            thanhVien.cccd = Integer.parseInt(ed_cccd_tv.getText().toString());
                           thanhVienDAO.insertThanhVien(thanhVien);
                           arrThanhVien = new ArrayList<>();
                           arrThanhVien = (ArrayList<ThanhVien>) thanhVienDAO.getAllThanhVien();

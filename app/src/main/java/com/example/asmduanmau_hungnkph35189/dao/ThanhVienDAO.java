@@ -27,6 +27,7 @@ public class ThanhVienDAO {
         ContentValues values = new ContentValues();
         values.put("hoTen", thanhVien.hoTen);
         values.put("namSinh", thanhVien.namSinh);
+        values.put("cccd", thanhVien.cccd);
 
         return sqLiteDatabase.insert(TABLE_NAME_THANH_VIEN, null, values);
     }
@@ -35,6 +36,7 @@ public class ThanhVienDAO {
         ContentValues values = new ContentValues();
         values.put("hoTen", thanhVien.hoTen);
         values.put("namSinh", thanhVien.namSinh);
+        values.put("cccd", thanhVien.cccd);
         return sqLiteDatabase.update(TABLE_NAME_THANH_VIEN, values, "maTV=?", new String[]{String.valueOf(thanhVien.maTV)});
     }
 
@@ -61,6 +63,7 @@ public class ThanhVienDAO {
             thanhVien.maTV = Integer.parseInt(cursor.getString(cursor.getColumnIndex("maTV")));
             thanhVien.hoTen = cursor.getString(cursor.getColumnIndex("hoTen"));
             thanhVien.namSinh = cursor.getString(cursor.getColumnIndex("namSinh"));
+            thanhVien.cccd = Integer.parseInt(cursor.getString(cursor.getColumnIndex("cccd")));
             listTV.add(thanhVien);
         }
         return listTV;
