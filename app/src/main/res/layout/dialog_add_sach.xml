@@ -94,16 +94,17 @@
         android:layout_height="wrap_content"
         android:gravity="right"
         android:orientation="horizontal">
+
         <Button
+            android:id="@+id/btn_dialog_cancle_add_sach"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_marginRight="15dp"
-            android:textColor="@color/primary_color"
-            app:backgroundTint="#c4c4c4"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:background="@drawable/btn_aleart"
-            android:id="@+id/btn_dialog_cancle_add_sach"
-            android:text="Huỷ"/>
+            android:text="Huỷ"
+            android:textColor="@color/primary_color"
+            app:backgroundTint="#c4c4c4" />
 
         <Button
             android:id="@+id/btn_dialog_add_sach"

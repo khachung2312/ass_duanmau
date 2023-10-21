@@ -55,6 +55,11 @@ public class ThanhVienDAO {
         return listTV.get(0);
     }
 
+    public List<ThanhVien> searchThanhVienByName(String name) {
+        String sql = "SELECT * FROM " + TABLE_NAME_THANH_VIEN + " WHERE hoTen LIKE '%" + name + "%'";
+        return getData(sql);
+    }
+
     private List<ThanhVien> getData(String sql, String...selectionArgs) {
         List<ThanhVien> listTV = new ArrayList<>();
         Cursor cursor = sqLiteDatabase.rawQuery(sql, selectionArgs);

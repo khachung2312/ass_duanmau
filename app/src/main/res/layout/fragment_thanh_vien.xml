@@ -5,16 +5,26 @@
     android:layout_width="match_parent"
     android:padding="8dp"
     android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:iconifiedByDefault="false"
+            android:queryHint="Search"
+            app:iconifiedByDefault="false" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/rcv_thanh_vien"/>
     </LinearLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/float_btn_add_thanh_vien"
         android:layout_width="wrap_content"
@@ -25,4 +35,5 @@
         app:elevation="6dp"
         app:srcCompat="@drawable/plus_float_btn"
         app:tint="@color/white" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

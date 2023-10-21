@@ -5,16 +5,36 @@
     android:layout_width="match_parent"
     android:padding="8dp"
     android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btn_tang"
+                android:layout_width="160dp"
+                android:layout_height="40dp"
+                android:text="Tăng dần"
+                android:backgroundTint="#F44336"/>
+            <Button
+                android:id="@+id/btn_giam"
+                android:layout_width="160dp"
+                android:layout_height="40dp"
+                android:text="Giảm dần"
+                android:layout_marginLeft="10dp"
+                android:backgroundTint="#03A9F4"/>
+
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/rcv_sach"/>
     </LinearLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/float_btn_add_sach"
         android:layout_width="wrap_content"
@@ -25,4 +45,5 @@
         app:elevation="6dp"
         app:srcCompat="@drawable/plus_float_btn"
         app:tint="@color/white" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -85,6 +85,7 @@ public class LoaiSachFragment extends Fragment {
                 btn_cancel_add_loai_sach.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        ed_name_loai_sach.setText("");
                         alertDialog.dismiss();
                     }
                 });

@@ -58,6 +58,7 @@ public class PhieuMuonFragment extends Fragment {
     CheckBox chk_status;
     int maSach;
     int maTV;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -86,6 +87,8 @@ public class PhieuMuonFragment extends Fragment {
         arrPm = (ArrayList<PhieuMuon>) phieuMuonDAO.getAllPhieuMuon();
         phieuMuonAdapter = new PhieuMuonAdapter(mContext, arrPm);
         rcyPm.setAdapter(phieuMuonAdapter);
+
+
 
 
             floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -197,6 +200,7 @@ public class PhieuMuonFragment extends Fragment {
                         btn_cancel_add_phieu_muon.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+                                ed_ngay_thue.setText("");
                                 alertDialog[0].dismiss();
                             }
                         });
@@ -238,4 +242,5 @@ public class PhieuMuonFragment extends Fragment {
 
             });
     }
+
 }

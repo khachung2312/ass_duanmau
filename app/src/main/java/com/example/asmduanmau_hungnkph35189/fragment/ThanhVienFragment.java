@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import androidx.appcompat.widget.SearchView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -40,6 +41,7 @@ public class ThanhVienFragment extends Fragment {
     ThanhVienDAO thanhVienDAO;
     ThanhVienAdapter thanhVienAdapter;
     ThanhVienFragment thanhVienFragment;
+    SearchView searchTV;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -56,7 +58,7 @@ public class ThanhVienFragment extends Fragment {
         inflater = getLayoutInflater();
         floatingActionButton = view.findViewById(R.id.float_btn_add_thanh_vien);
         viewDialogAddThanhVien = inflater.inflate(R.layout.dialog_add_thanh_vien, null);
-
+        searchTV = view.findViewById(R.id.search_tv);
         rcyThanhVien= view.findViewById(R.id.rcv_thanh_vien);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(mContext);
         rcyThanhVien.setLayoutManager(layoutManager);
@@ -65,6 +67,21 @@ public class ThanhVienFragment extends Fragment {
         arrThanhVien = (ArrayList<ThanhVien>) thanhVienDAO.getAllThanhVien();
         thanhVienAdapter = new ThanhVienAdapter(mContext,this,  arrThanhVien);
         rcyThanhVien.setAdapter(thanhVienAdapter);
+
+
+        searchTV.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                ArrayList<ThanhVien> filteredList = (ArrayList<ThanhVien>) thanhVienDAO.searchThanhVienByName(newText);
+                thanhVienAdapter.setFilter(filteredList);
+                return true;
+            }
+        });
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,6 +123,9 @@ public class ThanhVienFragment extends Fragment {
                 btn_cancel_add.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        ed_name_tv.setText("");
+                        ed_bitd_date.setText("");
+                        ed_cccd_tv.setText("");
                         alertDialog.dismiss();
                     }
                 });
@@ -158,8 +178,10 @@ public class ThanhVienFragment extends Fragment {
                           alertDialog.dismiss();
                           ed_bitd_date.setText("");
                           ed_name_tv.setText("");
+                          ed_cccd_tv.setText("");
                           layout_ed_bith.setError("");
                           layout_name_tv.setError("");
+                          layout_cccd_tv.setError("");
 
                       }
                     }

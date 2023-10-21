@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,6 +32,9 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class SachFragment extends Fragment {
     LayoutInflater inflater;
@@ -44,8 +48,10 @@ public class SachFragment extends Fragment {
     SachDAO sachDAO;
     LoaiSachDAO loaiSachDAO;
     SachAdapter sachAdapter;
-    Spinner spinner_loai_sach;
+    Spinner spinner_loai_sach, spinner_sort;
     LoaiSachSpinnerAdapter loaiSachAdapter;
+    Button btnTang, btnGiam;
+
     int maLoaiSach;
     @Nullable
     @Override
@@ -58,6 +64,26 @@ public class SachFragment extends Fragment {
         super.onAttach(context);
         mContext = context;
     }
+    private void sortSachByPriceAscending() {
+        Collections.sort(arrSach, new Comparator<Sach>() {
+            @Override
+            public int compare(Sach sach1, Sach sach2) {
+                return sach1.giaThue - sach2.giaThue;
+            }
+        });
+        sachAdapter.notifyDataSetChanged();
+    }
+
+    private void sortSachByPriceDescending() {
+        Collections.sort(arrSach, new Comparator<Sach>() {
+            @Override
+            public int compare(Sach sach1, Sach sach2) {
+                return sach2.giaThue - sach1.giaThue;
+            }
+        });
+        sachAdapter.notifyDataSetChanged();
+    }
+
 
     @Override
     public void onViewCreated(@NonNull  View view, @Nullable  Bundle savedInstanceState) {
@@ -74,6 +100,25 @@ public class SachFragment extends Fragment {
         arrSach = (ArrayList<Sach>) sachDAO.getAllSach();
         sachAdapter = new SachAdapter(mContext, arrSach);
         rcySach.setAdapter(sachAdapter);
+
+        btnTang = view.findViewById(R.id.btn_tang);
+        btnGiam = view.findViewById(R.id.btn_giam);
+
+        btnTang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sortSachByPriceAscending();
+            }
+        });
+
+        btnGiam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sortSachByPriceDescending();
+            }
+        });
+
+
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override

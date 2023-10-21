@@ -25,6 +25,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class ThanhVienAdapter extends RecyclerView.Adapter<ThanhVienViewHolder> {
     ArrayList<ThanhVien> arrThanhVien = new ArrayList<>();
@@ -56,6 +57,11 @@ public class ThanhVienAdapter extends RecyclerView.Adapter<ThanhVienViewHolder> 
         return thanhVienViewHolder;
     }
 
+    public void setFilter(List<ThanhVien> filteredList) {
+        arrThanhVien.clear();
+        arrThanhVien.addAll(filteredList);
+        notifyDataSetChanged();
+    }
     @Override
     public void onBindViewHolder(@NonNull ThanhVienViewHolder holder, int position) {
         thanhVienFragment = new ThanhVienFragment();
